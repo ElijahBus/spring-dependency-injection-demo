@@ -1,6 +1,7 @@
 package org.example;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.lang.reflect.Type;
@@ -13,9 +14,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        Car obj = (Car) context.getBean("car");
-        obj.drive();
+        // XML Based configurations
+        // ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+
+        // ANNOTATION Based configuration
+        ApplicationContext factory = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+
+        Engine engine = factory.getBean(Engine.class);
+        engine.model();
 
     }
 }

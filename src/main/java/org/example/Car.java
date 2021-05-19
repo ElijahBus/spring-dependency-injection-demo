@@ -19,7 +19,7 @@ public class Car implements Vehicle
 
     public void drive()
     {
-        System.out.println("Car driving, tyre  "+ tyre);
+        System.out.println("Car driving");
     }
 
 }
